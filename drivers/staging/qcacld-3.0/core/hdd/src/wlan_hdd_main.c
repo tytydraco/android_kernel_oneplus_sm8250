@@ -14850,6 +14850,8 @@ static int __init hdd_module_init(void)
 	if (ret)
 		hdd_err("Failed to create sysfs entry");
 
+	hdd_driver_load();
+
 	return ret;
 }
 #endif
