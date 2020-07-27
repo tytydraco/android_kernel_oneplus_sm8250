@@ -14,6 +14,8 @@
 #include <asm/pgtable.h>
 #include <linux/uaccess.h>
 
+#include <oneplus/memplus/memplus_helper.h>
+
 static struct signal_struct init_signals = {
 	.nr_threads	= 1,
 	.thread_head	= LIST_HEAD_INIT(init_task.thread_node),

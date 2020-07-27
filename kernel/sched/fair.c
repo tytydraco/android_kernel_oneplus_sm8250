@@ -25,10 +25,7 @@
 #include <trace/events/sched.h>
 
 #include "walt.h"
-#ifdef CONFIG_OPCHAIN
-// morison.yan@ASTI, 2019/4/29, add for uxrealm CONFIG_OPCHAIN
 #include <oneplus/uxcore/opchain_helper.h>
-#endif
 #ifdef CONFIG_ONEPLUS_HEALTHINFO
 #include <linux/oem/oneplus_healthinfo.h>
 #endif
@@ -39,6 +36,7 @@
 
 #include <linux/oem/im.h>
 #include <linux/oem/control_center.h>
+#include <oneplus/control_center/control_center_helper.h>
 
 #ifdef CONFIG_SMP
 static inline bool task_fits_max(struct task_struct *p, int cpu);

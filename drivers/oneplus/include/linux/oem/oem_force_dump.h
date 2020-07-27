@@ -15,10 +15,8 @@
 
 #define OEM_SERIAL_INIT
 
-extern void oem_check_force_dump_key(unsigned int code, int value);
 extern int oem_get_download_mode(void);
 void send_msg(char *message);
-void send_msg_sync_mdm_dump(void);
 #ifdef OEM_SERIAL_INIT
 int  msm_serial_oem_init(void);
 #else
@@ -30,9 +28,19 @@ enum key_stat_item {
 	KEY_PRESSED
 };
 
+#ifdef CONFIG_OEM_FORCE_DUMP
+extern void oem_check_force_dump_key(unsigned int code, int value);
+void send_msg_sync_mdm_dump(void);
 extern void send_sig_to_get_trace(char *name);
 extern void compound_key_to_get_trace(char *name);
 extern enum key_stat_item pwr_status, vol_up_status;
+#else
+static inline void oem_check_force_dump_key(unsigned int code, int value) {}
+static inline void send_msg_sync_mdm_dump(void) {}
+static inline void send_sig_to_get_trace(char *name) {}
+static inline void compound_key_to_get_trace(char *name) {}
+static enum key_stat_item pwr_status, vol_up_status;
+#endif
 
 static inline void set_pwr_status(enum key_stat_item status)
 {

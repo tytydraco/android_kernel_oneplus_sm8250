@@ -82,6 +82,8 @@ static struct vfsmount *shm_mnt;
 #include <linux/uaccess.h>
 #include <asm/pgtable.h>
 
+#include <oneplus/memplus/memplus_helper.h>
+
 #include "internal.h"
 
 #define BLOCKS_PER_PAGE  (PAGE_SIZE/512)

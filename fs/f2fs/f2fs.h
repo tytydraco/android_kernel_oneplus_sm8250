@@ -3443,8 +3443,6 @@ int f2fs_build_stats(struct f2fs_sb_info *sbi);
 void f2fs_destroy_stats(struct f2fs_sb_info *sbi);
 void __init f2fs_create_root_stats(void);
 void f2fs_destroy_root_stats(void);
-extern struct cp_fail_info cfi;
-extern spinlock_t cfi_spinlock;
 #else
 #define stat_inc_cp_count(si)				do { } while (0)
 #define stat_inc_bg_cp_count(si)			do { } while (0)
@@ -3484,6 +3482,9 @@ static inline void f2fs_destroy_stats(struct f2fs_sb_info *sbi) { }
 static inline void __init f2fs_create_root_stats(void) { }
 static inline void f2fs_destroy_root_stats(void) { }
 #endif
+
+extern struct cp_fail_info cfi;
+extern spinlock_t cfi_spinlock;
 
 #ifdef CONFIG_F2FS_BD_STAT
 #include "../../drivers/oneplus/fs/f2fs/of2fs_bigdata.h"

@@ -53,11 +53,10 @@ static inline void cc_tsk_free(void *task) {};
 
 static inline u64 cc_cpu_find_ddr(int cpu) { return 0; }
 static inline bool cc_is_ddrfreq_related(const char *name) { return false; }
-extern unsigned long cc_get_expect_ddrfreq(void) { return 0; }
-extern bool cc_ddr_boost_enabled(void) { return false; }
+static inline unsigned long cc_get_expect_ddrfreq(void) { return 0; }
+static inline bool cc_ddr_boost_enabled(void) { return false; }
 #endif
 
-#ifdef CONFIG_CONTROL_CENTER
 /* expected to public */
 enum {
 	CCDM_DEFAULT = 0,
@@ -86,6 +85,7 @@ enum {
 	CCDM_TB_IDLE_BLOCK,
 };
 
+#ifdef CONFIG_CONTROL_CENTER
 /* status check */
 extern bool ccdm_enabled(void);
 

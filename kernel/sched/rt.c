@@ -10,10 +10,7 @@
 #include <linux/interrupt.h>
 
 #include "walt.h"
-#ifdef CONFIG_OPCHAIN
-// morison.yan@ASTI, 2019/4/29, add for uxrealm CONFIG_OPCHAIN
 #include <oneplus/uxcore/opchain_helper.h>
-#endif
 
 #ifdef CONFIG_CONTROL_CENTER
 #include <linux/oem/control_center.h>

@@ -4840,7 +4840,9 @@ kgsl_get_unmapped_area(struct file *file, unsigned long addr,
 			if (!RB_EMPTY_ROOT(&mm->mm_rb)) {
 				vma = rb_entry(mm->mm_rb.rb_node, struct vm_area_struct, vm_rb);
 				largest_gap_cpu = vma->rb_subtree_gap;
+#ifdef CONFIG_VM_FRAGMENT_MONITOR
 				largest_gap_gpu = vma->rb_glfragment_gap;
+#endif
 			}
 
 			if (private->pid != current_pid) {

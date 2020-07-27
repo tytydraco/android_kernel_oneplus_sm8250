@@ -99,6 +99,8 @@
 #include "internal.h"
 #include "fd.h"
 
+#include <oneplus/memplus/memplus_helper.h>
+
 #include "../../lib/kstrtox.h"
 
 /* NOTE:

@@ -101,6 +101,8 @@
 #include <oneplus/control_center/control_center_helper.h>
 #endif
 
+#include <oneplus/memplus/memplus_helper.h>
+
 #include <asm/pgtable.h>
 #include <asm/pgalloc.h>
 #include <linux/uaccess.h>
